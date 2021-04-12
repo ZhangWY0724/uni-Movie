@@ -1,0 +1,71 @@
+/* 搜索框 Begin*/
+.search-ico{
+	width: 30upx;
+	height: 30upx;
+}
+
+.search-text{
+	font-size: 14px;
+	background-color: #F1F1F1;
+	height: 60upx;
+	width: 650upx;
+}
+.search-block{
+	display: flex;
+	flex-direction: row;
+	padding: 0upx 20upx 20upx 20upx;
+}
+.search-block-ico{
+	background-color: #F1F1F1; 
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 0upx 10upx;
+}
+/* 搜索框 End */
+
+/* 搜索内容展示 Begin*/
+
+.search-list-item{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding:30upx 30upx;
+	border-bottom: 1px solid #C0C0C0;
+	
+}
+.item-img{
+	width: 128upx;
+	height: 180upx;
+}
+.list-item-info{
+	flex: 1;
+	padding-left: 15upx;
+	display: flex;
+	flex-direction: column;
+}
+.item-info-title{
+	font-size: 18px;
+	font-weight: bold;
+}
+.item-info-detail{
+	color: #666;
+	font-size: 14px;
+	line-height: 22px;
+}
+.item-info-score{
+	color: #fa0;
+}
+.item-info-title-3d{
+	width: 40upx;
+	height: 40upx;
+}
+
+.search-all{
+	color: #ef4238;
+	font-size: 15px;
+	text-align: center;
+	height: 44px;
+	line-height: 44px;
+}
+/* 搜索内容展示 End */

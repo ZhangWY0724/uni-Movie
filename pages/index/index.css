@@ -1,0 +1,138 @@
+.carousel{
+	width: 100%;
+	height: 410upx;
+}
+/* 热门视频 Begin */
+.super-hot{
+	margin-top: 12upx;
+	padding: 20upx;
+}
+
+.hot-title-wapper{
+	display: flex;
+	flex-direction: row;
+}
+
+.hot-ico{
+	width: 40upx;
+	height: 40upx;
+	margin-top: 5upx;
+	
+}
+
+.hot-title{
+	font-size: 20px;
+	margin-left: 20upx;
+	font-weight: bold;
+}
+
+.hot{
+	width: 100%;
+	white-space: nowrap;
+}
+
+.signle-poster{
+	display: inline-block;
+	margin-left: 20upx;
+}
+
+.poster-wapper{
+	display: flex;
+	flex-direction: column;
+}
+
+.hot-movie-jpg{
+	width:200upx ;
+	height:270upx;
+}
+
+.movie-name{
+	width: 200upx;
+	margin-top: 10upx;
+	font-size: 14px;
+	font-weight: bold;
+	/* 对名字过长进行处理 */
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+/* End */
+
+/* 热门预告 Begin */
+.hot-movie{
+	margin-left: 15upx;
+	width: 350upx;
+	height: 200upx;
+	padding: 0upx 20upx 20upx 20upx;
+}
+/* 热门预告 End */
+
+/* 猜你喜欢 Begin */
+.guess-u-like{
+	display: flex;
+	flex-direction: column;
+}
+
+.ulike-reload{
+	margin-top: 8upx;
+	margin-left: 5px;
+}
+.like-movie-png{
+	width: 180upx;
+	height: 240upx;
+	border-radius: 3%;
+}
+
+.signle-like-movie{
+	display: flex;
+	flex-direction: row;
+	padding: 30upx 20upx;
+	justify-content: space-between;
+}
+.movie-desc{
+	width: 340upx;
+	display: flex;
+	flex-direction: column;
+}
+
+.movie-title{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 18px;
+}
+.movie-info{
+	color: #808080;
+	font-size: 14px;
+	
+}
+.movie-Introduce{
+	
+}
+/* 点赞 */
+.movie-oper{
+	display: flex;
+	width: 140upx;
+	flex-direction: column;
+	justify-content: center;
+	
+	border-left:dashed 2px ;
+	border-left-color: #C0C0C0;
+}
+.giveup-ico{
+	width: 40upx;
+	height: 40upx;
+	align-self: center;
+}
+.giveup-me{
+	font-size: 14px;
+	color:#feab2a ;
+	align-self: center;
+}
+.animation-opacity{
+	font-weight: bold;
+	opacity: 0;
+}
+/* 猜你喜欢 End */
