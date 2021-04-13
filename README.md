@@ -19,3 +19,7 @@
   - 如offset=1，limit=10，则数据返回是1-10数据
   - offset=7，limit=15，则返回数据是7-22数据
   - 所以此时分页逻辑应该是offset累加每页数量实现分页
+### 演示图片
+![](https://github.com/ZhangWY0724/uniappLearn/blob/main/%E6%BC%94%E7%A4%BA%E5%9B%BE%E7%89%87/index.png)
+![](https://github.com/ZhangWY0724/uniappLearn/blob/main/%E6%BC%94%E7%A4%BA%E5%9B%BE%E7%89%87/search.png)
+![](https://github.com/ZhangWY0724/uniappLearn/blob/main/%E6%BC%94%E7%A4%BA%E5%9B%BE%E7%89%87/search2.png)
