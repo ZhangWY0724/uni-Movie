@@ -1,0 +1,168 @@
+/* 头部预告片 Begin */
+.movie-detail-vedio{
+	margin-top: 20rpx;
+}
+.movie-vedio{
+	width: 100%;
+	height: 380rpx;
+}
+/* 头部预告片 End */
+/* 上部分详情 Begin */
+.movie-bgimg{
+	width: 100%;
+	height: 350rpx;
+	-webkit-filter: blur(30rpx);
+	        filter: blur(30rpx);
+	/* position: absolute; */
+	background-repeat: no-repeat;
+	/* background-size: 100% 100%; */
+}
+.movie-detail{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	padding: 30rpx 30rpx;
+	position: absolute;
+	top: 0;
+}
+.detail-img-ico{
+	width: 206rpx;
+	height: 286rpx;
+}
+.detail-info{
+	color: #C0C0C0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	padding-left: 30rpx;
+	font-size: 14px;
+	line-height: 22px;
+}
+.detail-info-nm{
+	color: #FFFFFF;
+	font-size: 18px;
+}
+/* 上部分详情 End */
+/* 中间简介 Begin */
+.movie-info-texthide{
+	height: 50rpx;
+	padding: 50rpx 30rpx;
+	margin-top: 30rpx;
+	overflow: hidden;
+}
+.movie-info-textauto{
+	padding: 50rpx 30rpx;
+	margin-top: 30rpx;
+	height: auto;
+}
+.movie-info-text-btn{
+	text-align: center;
+}
+.movie-info-text-btn-img{
+	width: 30rpx;
+	height: 30rpx;
+}
+/* 中间简介 End */
+/* 电影图片展示 Begin */
+.movie-detail-photos{
+	margin-top: 20rpx;
+}
+.movie-detail-photos-text{
+	padding: 20rpx 20rpx;
+}
+.movie-photos-scroll{
+	width: 100%;
+	white-space: nowrap;
+}
+.movie-photos-block{
+	display: inline-block;
+	margin-left: 20rpx;
+}
+.movie-photos-item{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	margin-left: 20rpx;
+}
+.movie-photos-png{
+	width: 200rpx;
+	height: 270rpx;
+}
+/* 电影图片展示 End */
+/* 电影评论 Begin */
+.movie-comment-item{
+	padding: 30rpx 20rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+}
+.movie-comment{
+	margin-top: 30rpx;
+}
+.movie-comment-user{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	font-size: 14px;
+}
+.movie-comment-user-img{
+	width: 80rpx;
+	height: 80rpx;
+}
+.movie-comment-user-info{
+	padding-left: 20rpx;
+}
+.movie-comment-info{
+	padding-top: 25rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	font-size: 14px;
+	color: #808080;
+	padding-left: 100rpx;
+}
+.movie-comment-text{
+	padding-left: 100rpx;
+	font-size: 15px;
+}
+.movie-comment-info-ico{
+	padding-left: 10rpx;
+	width: 30rpx;
+	height: 30rpx;
+}
+.search-all{
+	color: #ef4238;
+	font-size: 15px;
+	text-align: center;
+	height: 44px;
+	line-height: 44px;
+}
+/* 电影评论 End' */
+

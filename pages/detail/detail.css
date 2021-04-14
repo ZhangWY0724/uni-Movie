@@ -1,0 +1,141 @@
+/* 头部预告片 Begin */
+.movie-detail-vedio{
+	margin-top: 20upx;
+}
+.movie-vedio{
+	width: 100%;
+	height: 380upx;
+}
+/* 头部预告片 End */
+/* 上部分详情 Begin */
+.movie-bgimg{
+	width: 100%;
+	height: 350upx;
+	filter: blur(30upx);
+	/* position: absolute; */
+	background-repeat: no-repeat;
+	/* background-size: 100% 100%; */
+}
+.movie-detail{
+	display: flex;
+	flex-direction: row;
+	padding: 30upx 30upx;
+	position: absolute;
+	top: 0;
+}
+.detail-img-ico{
+	width: 206upx;
+	height: 286upx;
+}
+
+.detail-info{
+	color: #C0C0C0;
+	display: flex;
+	flex-direction: column;
+	padding-left: 30upx;
+	font-size: 14px;
+	line-height: 22px;
+}
+.detail-info-nm{
+	color: #FFFFFF;
+	font-size: 18px;
+}
+/* 上部分详情 End */
+
+/* 中间简介 Begin */
+
+.movie-info-texthide{
+	height: 50upx;
+	padding: 50upx 30upx;
+	margin-top: 30upx;
+	overflow: hidden;
+}
+.movie-info-textauto{
+	padding: 50upx 30upx;
+	margin-top: 30upx;
+	height: auto;
+}
+.movie-info-text-btn{
+	text-align: center;
+}
+.movie-info-text-btn-img{
+	width: 30upx;
+	height: 30upx;
+}
+/* 中间简介 End */
+
+/* 电影图片展示 Begin */
+.movie-detail-photos{
+	margin-top: 20upx;
+}
+.movie-detail-photos-text{
+	padding: 20upx 20upx;
+}
+.movie-photos-scroll{
+	width: 100%;
+	white-space: nowrap;
+}
+.movie-photos-block{
+	display: inline-block;
+	margin-left: 20upx;
+}
+.movie-photos-item{
+	display: flex;
+	flex-direction: row;
+	margin-left: 20upx;
+}
+.movie-photos-png{
+	width: 200upx;
+	height: 270upx;
+	
+}
+/* 电影图片展示 End */
+
+/* 电影评论 Begin */
+.movie-comment-item{
+	padding: 30upx 20upx;
+	display: flex;
+	flex-direction: column;
+}
+
+.movie-comment{
+	margin-top: 30upx;
+}
+.movie-comment-user{
+	display: flex;
+	flex-direction: row;
+	font-size: 14px;
+}
+.movie-comment-user-img{
+	width: 80upx;
+	height: 80upx;
+}
+.movie-comment-user-info{
+	padding-left: 20upx;
+}
+.movie-comment-info{
+	padding-top: 25upx;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: 14px;
+	color: #808080;
+	padding-left: 100upx;
+}
+.movie-comment-text{
+	padding-left: 100upx;
+	font-size: 15px;
+}
+.movie-comment-info-ico{
+	padding-left: 10upx;
+	width: 30upx;
+	height: 30upx;
+}
+.search-all{
+	color: #ef4238;
+	font-size: 15px;
+	text-align: center;
+	height: 44px;
+	line-height: 44px;
+}
+/* 电影评论 End' */

@@ -41,6 +41,7 @@
 			var gewei = "";
 			if(this.innerScore != null && this.innerScore !=undefined && this.innerScore != ''){
 				tempScore = this.innerScore;
+				// console.log(tempScore);
 			}
 			if(tempScore.toString().indexOf('.')>-1){
 				this.Scoretype = 0

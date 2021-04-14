@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var traillerStars = function traillerStars() {__webpack_require__.e(/*! require.ensure | components/traillerStars */ "components/traillerStars").then((function () {return resolve(__webpack_require__(/*! ../../components/traillerStars.vue */ 33));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var traillerStars = function traillerStars() {__webpack_require__.e(/*! require.ensure | components/traillerStars */ "components/traillerStars").then((function () {return resolve(__webpack_require__(/*! ../../components/traillerStars.vue */ 41));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -283,6 +283,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.SuperHotList[i].img = _this.SuperHotList[i].img.replace('w.h/', '');
         }
 
+
       } });
 
 
@@ -348,6 +349,11 @@ __webpack_require__.r(__webpack_exports__);
         mask: true });
 
       this.refresh();
+    },
+    goDetail: function goDetail(movieid) {
+      uni.navigateTo({
+        url: '../detail/detail?movieid=' + movieid });
+
     } },
 
 

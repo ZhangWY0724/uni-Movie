@@ -18,7 +18,7 @@
 			</view>
 		</view>
 		<scroll-view scroll-x="true" class="hot page-block">
-			 <view class="signle-poster" v-for=" (item,index) in SuperHotList" :key="index"> 
+			 <view class="signle-poster" v-for=" (item,index) in SuperHotList" :key="index" @click="goDetail(item.id)"> 
 				 <view class="poster-wapper">
 					 <image :src="item.img" class="hot-movie-jpg"></image>
 					 <view class="movie-name">
@@ -151,6 +151,7 @@
 						this.SuperHotList[i].img = this.SuperHotList[i].img.replace('w.h/','')
 					}
 					
+					
 				}
 			})
 			
@@ -216,6 +217,11 @@
 					mask:true
 				})
 				this.refresh();
+			},
+			goDetail(movieid){
+				uni.navigateTo({
+					url:'../detail/detail?movieid='+movieid
+				})
 			}
 		}
 		,

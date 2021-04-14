@@ -1,0 +1,6 @@
+{
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "trailler-stars": "/components/traillerStars"
+  }
+}

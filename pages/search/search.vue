@@ -4,18 +4,16 @@
 			<view class="search-block-ico">
 				<image src="../../static/search/search.png" class="search-ico"></image>
 			</view>
-			<input type="text" :value="searchValue"  placeholder="搜索电影" maxlength="10" class="search-text" @input="searchMovie"/>
+			<input type="text" :value="searchValue"  placeholder="搜索电影" maxlength="10" class="search-text"  @input="searchMovie"/>
 		</view>
 		<view class="search-list page-block">
-			<view class="search-list-item" v-for="(item,index) in searchList" :key="index">
+			<view class="search-list-item" v-for="(item,index) in searchList" :key="index" @click="goDetail(item.id)">
 				<view class="list-item-img">
 					<image :src="item.img" class="item-img"></image>
 				</view>
 				<view class="list-item-info">
 					<view class="item-info-title">
 						{{item.nm}}
-						<!-- <image src="../../static/search/3D.png" class="item-info-title-3d" v-show=""></image> -->
-						
 					</view>
 					<view class="item-info-detail">
 						<view class="item-info-title-english" v-show="item.enm==undefined || item.enm == ''?false:true">
@@ -45,31 +43,44 @@
 </template>
 
 <script>
+	//防抖函数，防止短时间提交多次
+	function debounce(func, wait=500){ //可以放入项目中的公共方法中进行调用
+	 let timeout;
+	 return function(event){
+	  clearTimeout(timeout)
+	  timeout = setTimeout(()=>{
+	   func.call(this, event)
+	  },wait)
+	 }}
+	
 	export default {
 		data() {
 			return {
 				searchValue:"",			//查询关键字
 				searchList:[],			//查询结果
 				page:1,					//当前页数
-				allmovies:0				//总数量	
+				allmovies:0				,//总数量	
+				allmovieslist:""
 			}
 		},
 		onReachBottom() { //页面触底事件
 			var me = this;
 			var page = me.page+10;
 			var sValue = me.searchValue;
-			var allmovies = me.allmovies;
+			var allmovieslist = me.allmovieslist;
 			uni.showLoading({
 				mask:true,
 				title:"加载中..."
 			})
-			if(page <= allmovies){
+			if(page <= allmovieslist){
 				me.searchByFY(sValue,page,10);	
+			}else{
+				uni.hideLoading();
 			}
 		},
 		methods: {
 			//模糊查询
-			searchMovie(e){
+			searchMovie:debounce(function (e) {
 				uni.showLoading({
 					mask:true,
 					title:"加载中..."
@@ -83,6 +94,11 @@
 					return;
 				}
 				this.searchValue = txtsearchValue;
+				this.searchWhere();
+			}),
+			
+			searchWhere(){
+				
 				uni.request({
 					url:"https://m.maoyan.com/ajax/search?kw="+this.searchValue+"&cityId=59&stype=-1",
 					method:"GET",
@@ -96,18 +112,19 @@
 							return;
 						}
 						this.searchList = res.data.movies.list;
-				
+						// console.log(this.searchList);
 						for (let i = 0; i < this.searchList.length; i++) {
 							this.searchList[i].img = this.searchList[i].img.replace('w.h/','')
 						}
 						 this.allmovies = res.data.movies.total;
+						 this.allmovieslist = res.data.movies.total;
 					},complete: () => {
 						this.inputdis = false;
 						uni.hideLoading()
 					}
 				})
-				
 			},
+			
 			//分页模糊查询
 			searchByFY(value,page,limit){
 				var me = this;
@@ -126,7 +143,7 @@
 						for (let i = 0; i < templist.length; i++) {
 							templist[i].img = templist[i].img.replace('w.h/','')
 						}
-						me.allmovies = res.data.total;
+						
 						me.searchList = me.searchList.concat(templist);
 						me.page = page;
 						
@@ -139,14 +156,21 @@
 			//查询全部
 			searchAll(){
 				this.searchList = [];
+				this.allmovies = 0;
 				uni.showLoading({
 					mask:true,
 					title:"加载中..."
 				});
-				this.allmovies = 0; //去掉总数
+				 //去掉总数
 				this.searchByFY(this.searchValue,1,10);
+			},
+			
+			//跳转详情页
+			goDetail(movieid){
+				uni.navigateTo({
+					url:"../detail/detail?movieid="+movieid
+				})
 			}
-			//防抖
 			
 		}
 	}

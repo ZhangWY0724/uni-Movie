@@ -179,34 +179,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-var _default =
+
+//防抖函数，防止短时间提交多次
+function debounce(func) {var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500; //可以放入项目中的公共方法中进行调用
+  var timeout;
+  return function (event) {var _this = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+      func.call(_this, event);
+    }, wait);
+  };}var _default =
+
 {
   data: function data() {
     return {
       searchValue: "", //查询关键字
       searchList: [], //查询结果
       page: 1, //当前页数
-      allmovies: 0 //总数量	
-    };
+      allmovies: 0, //总数量	
+      allmovieslist: "" };
+
   },
   onReachBottom: function onReachBottom() {//页面触底事件
     var me = this;
     var page = me.page + 10;
     var sValue = me.searchValue;
-    var allmovies = me.allmovies;
+    var allmovieslist = me.allmovieslist;
     uni.showLoading({
       mask: true,
       title: "加载中..." });
 
-    if (page <= allmovies) {
+    if (page <= allmovieslist) {
       me.searchByFY(sValue, page, 10);
+    } else {
+      uni.hideLoading();
     }
   },
   methods: {
     //模糊查询
-    searchMovie: function searchMovie(e) {var _this = this;
+    searchMovie: debounce(function (e) {
       uni.showLoading({
         mask: true,
         title: "加载中..." });
@@ -220,33 +231,39 @@ var _default =
         return;
       }
       this.searchValue = txtsearchValue;
+      this.searchWhere();
+    }),
+
+    searchWhere: function searchWhere() {var _this2 = this;
+
       uni.request({
         url: "https://m.maoyan.com/ajax/search?kw=" + this.searchValue + "&cityId=59&stype=-1",
         method: "GET",
         success: function success(res) {
           //判断是否有 有效数据
           if (res.statusCode != 200 || res.data.movies == undefined || res.data.movies.length < 0) {
-            _this.searchList = [];
-            _this.allmovies = 0;
+            _this2.searchList = [];
+            _this2.allmovies = 0;
             uni.hideLoading();
-            _this.inputdis = false;
+            _this2.inputdis = false;
             return;
           }
-          _this.searchList = res.data.movies.list;
-
-          for (var i = 0; i < _this.searchList.length; i++) {
-            _this.searchList[i].img = _this.searchList[i].img.replace('w.h/', '');
+          _this2.searchList = res.data.movies.list;
+          // console.log(this.searchList);
+          for (var i = 0; i < _this2.searchList.length; i++) {
+            _this2.searchList[i].img = _this2.searchList[i].img.replace('w.h/', '');
           }
-          _this.allmovies = res.data.movies.total;
+          _this2.allmovies = res.data.movies.total;
+          _this2.allmovieslist = res.data.movies.total;
         }, complete: function complete() {
-          _this.inputdis = false;
+          _this2.inputdis = false;
           uni.hideLoading();
         } });
 
-
     },
+
     //分页模糊查询
-    searchByFY: function searchByFY(value, page, limit) {var _this2 = this;
+    searchByFY: function searchByFY(value, page, limit) {var _this3 = this;
       var me = this;
       uni.request({
         url: "https://m.maoyan.com/searchlist/movies?keyword=" + value + "&ci=59&offset=" + page + "&limit=" + limit,
@@ -256,19 +273,19 @@ var _default =
           if (res.statusCode != 200 || res.data.movies == undefined || res.data.movies.length < 0) {
             me.searchList = [];
             uni.hideLoading();
-            _this2.inputdis = false;
+            _this3.inputdis = false;
             return;
           }
           var templist = res.data.movies;
           for (var i = 0; i < templist.length; i++) {
             templist[i].img = templist[i].img.replace('w.h/', '');
           }
-          me.allmovies = res.data.total;
+
           me.searchList = me.searchList.concat(templist);
           me.page = page;
 
         }, complete: function complete() {
-          _this2.inputdis = false;
+          _this3.inputdis = false;
           uni.hideLoading();
         } });
 
@@ -276,15 +293,21 @@ var _default =
     //查询全部
     searchAll: function searchAll() {
       this.searchList = [];
+      this.allmovies = 0;
       uni.showLoading({
         mask: true,
         title: "加载中..." });
 
-      this.allmovies = 0; //去掉总数
+      //去掉总数
       this.searchByFY(this.searchValue, 1, 10);
-    }
-    //防抖
-  } };exports.default = _default;
+    },
+
+    //跳转详情页
+    goDetail: function goDetail(movieid) {
+      uni.navigateTo({
+        url: "../detail/detail?movieid=" + movieid });
+
+    } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
