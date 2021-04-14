@@ -143,9 +143,13 @@
 				url: "https://m.maoyan.com/ajax/movieOnInfoList",
 				method:"GET",
 				header: {
-						'content-type': 'application/json'
+						'content-type': 'application/json',
+						'cookie': 'iuuid=01E2CDE09CCA11EBBA0D13E3C3194737A56B4CED40274A299CC63CA5D6B488F1'
 					},
 				success	: (res) => {
+					if(res.statusCode != 200){
+						return;
+					}
 					this.SuperHotList = res.data.movieList;
 					for (let i = 0; i < this.SuperHotList.length; i++) {
 						this.SuperHotList[i].img = this.SuperHotList[i].img.replace('w.h/','')

@@ -13,7 +13,18 @@
 			"path" : "pages/detail/detail",
 			"style" :                                                                                    
 			{
-				"enablePullDownRefresh": false
+				"enablePullDownRefresh": false,
+				"app-plus":{
+					"titleNView":{
+						"type":"transparent",
+						"buttons":[
+							{
+								"type":"share"
+							}
+						]
+					}
+					
+				}
 			}
 			
 		},

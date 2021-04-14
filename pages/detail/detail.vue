@@ -43,7 +43,7 @@
 		</view>
 
 		<view class="movie-detail-vedio">
-			<video :src="Moviedetail.videourl" :poster="Moviedetail.videoImg" class="movie-vedio"></video>
+			<video id="movievedio" :src="Moviedetail.videourl" :poster="Moviedetail.videoImg" class="movie-vedio"></video>
 		</view>
 
 		<!-- 电影图片展示 -->
@@ -113,11 +113,26 @@
 			this.searchDetail();
 			this.searchComment();
 		},
+		onReady() {
+			this.videocontext = uni.createVideoContext('movievedio');
+		},
+		onHide() {
+			this.videocontext.pause();
+		},
+		onShow() {
+			if(this.videocontext){
+				this.videocontext.play();
+			}
+			
+		},
 		onShareAppMessage(res) {
 			return {
 				title:this.Moviedetail.nm,
 				path:'/pages/detail/detail?movieid='+this.Movieid
 			}
+		},
+		onNavigationBarButtonTap(e){
+			console.log(e);
 		},
 		filters:{
 			formatDate: function(value) {
@@ -147,7 +162,7 @@
 					url: "https://m.maoyan.com/ajax/detailmovie?movieId="+this.Movieid,
 					method: "GET",
 					header: { //uni.request不支持小程序cookie，此处iuuid为自己获取的id，并手动设置cookie传入
-						'cookie': 'iuuid=6E6951809CBD11EB96EC9BA6E0974581689BED8534604B70886B4A761911ED0B'
+						'cookie': 'iuuid=01E2CDE09CCA11EBBA0D13E3C3194737A56B4CED40274A299CC63CA5D6B488F1'
 					},
 					success: (res) => {
 						// console.log(res);
@@ -190,7 +205,7 @@
 					url: "https://m.maoyan.com/review/v2/comments.json?movieId="+this.Movieid+"&userId=-1&offset=15&limit=15&ts=",
 					method: "GET",
 					header: { //uni.request不支持小程序cookie，此处iuuid为自己获取的id，并手动设置cookie传入
-						'cookie': 'iuuid=6E6951809CBD11EB96EC9BA6E0974581689BED8534604B70886B4A761911ED0B'
+						'cookie': 'iuuid=01E2CDE09CCA11EBBA0D13E3C3194737A56B4CED40274A299CC63CA5D6B488F1'
 					},
 					success: (res) => {
 						console.log(res);
