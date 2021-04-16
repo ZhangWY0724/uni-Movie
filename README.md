@@ -1,15 +1,24 @@
-# uniappLearn 电影小程序
+# uniapp 仿猫眼电影小程序
 
 ## 前言
+#### 2021-4-16
++ 由于登录接口缺失，并且第三方登录需要开通认证微信开放平台，所以登录功能暂时没办法实现
++ 为了发布需要，现已经全部接口替换为猫眼api，原功能代码均保存并注释，并不影响
+#### 2021-4-13
 + 项目会跟着我自身学习进度不断完善，并且将其中用到的接口提供出来
 + 后端接口采用自己编写的webapi，数据较少，勉强够展示效果。地址：http://121.5.249.207/
 + 部分功能是跟随着视频来，部分功能为自己拓展，跟着猫眼小程序编写，不要一味跟着视频写，最好自己找个参照可以完成类似的功能
 + 注意，小程序发布必须为https域名，所以此接口仅供调试使用
 + 如果需要别的接口或者项目中有什么问题，可以联系我（qq1024516151）或者留言
+
 ### 主页
-+ 中间的今日热映接口采用的猫眼api
++ 今日热映
   - 地址：https://m.maoyan.com/ajax/movieOnInfoList GET
-+ 其余接口均为自编写Webapi，详情看http://121.5.249.207/  并进入swagger页签
++ 正在热映
+  - 地址：https://m.maoyan.com/ajax/moreComingList?token=&optimus_code=10&movieIds=&optimus_risk_level=71
+  - 需要携带认证参数，movieIds为今日热映接口数据中的movieIds，通过拼接不同的movieId完成伪分页效果
+  - 例如：https://m.maoyan.com/ajax/moreComingList?token=&optimus_code=10&movieIds=12222,13564,97461,61654&optimus_risk_level=71
+  
 
 ### 搜索页
 搜索页面因需要较大的数据量支持，所以采用了猫眼电影api
